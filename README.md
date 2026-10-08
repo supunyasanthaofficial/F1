@@ -1,78 +1,67 @@
-# FORMULA 1 // 4K SCROLL-DRIVEN CINEMATIC EXPERIENCE
+# FORMULA 1 // EDITORIAL SCROLL EXPERIENCE
 
-A cutting-edge, high-velocity Formula 1 interactive web experience built with the exact requested tech stack.
+A human-crafted, editorial, scroll-driven Formula 1 storytelling website inspired by [jjettas.com](https://jjettas.com/). Built with React, TypeScript, Tailwind CSS, and GSAP + ScrollTrigger.
 
 ---
 
-## 🏎️ Tech Stack
+## Tech Stack
+
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **GSAP + ScrollTrigger**
+- **Vite**
+
+---
+
+## Architectural Highlights
+
+### 1. Scroll-Driven Video Scrubbing (`hero-f1.mp4`)
+- Re-encoded using All-Intra H.264 (`-g 1 -keyint_min 1 -sc_threshold 0`) for direct 0ms keyframe seek accuracy.
+- Scrub-driven timeline synchronization with GSAP `ScrollTrigger`.
+- Throttled using `requestAnimationFrame` and threshold distance checking to prevent video decode thread flooding.
+- Flowing vertical typography transitions (`flow-chapter-i`) that glide in and out seamlessly as the user scrolls.
+
+### 2. Looping Cinematic Track Section (`pyramids-f1.mp4`)
+- Clean in-view autoplay using `IntersectionObserver` with an interactive sound toggle (`SOUND ON / SOUND OFF`).
+- Avoids scroll trapping by letting the user scroll past naturally while maintaining an atmospheric presence.
+
+### 3. Editorial Photography & Layout
+- Authentic high-resolution editorial photography (aero detail, cockpit halo, sidepod diffuser, braking zone, apex kerb, parabolica launch).
+- Minimalist typography paired with Barlow, Barlow Condensed, and IM Fell English SC fonts.
+- Pure black editorial theme (`#0a0a0a`) free of clutter, navbars, footers, or artificial dashboard widgets.
+
+---
+
+## Project Structure
 
 ```text
-Frontend
-├── React 19
-├── TypeScript
-├── Tailwind CSS v4
-└── GSAP + ScrollTrigger
-
-3D Interactive
-└── Three.js / React Three Fiber (@react-three/fiber & @react-three/drei)
-
-Sound & Kinematics
-└── Web Audio API F1 V6 Turbo-Hybrid Synthesizer & Team Radio FX
+src/
+├── components/
+│   ├── AutoPlayVideo.tsx     # In-view autoplay looping video section with sound toggle
+│   ├── BodyText.tsx          # Editorial paragraph block with scroll fade-in
+│   ├── EditorialImage.tsx    # High-res photography card with zoom effect & caption
+│   ├── RevealText.tsx        # Dynamic editorial headline reveal
+│   ├── Rule.tsx              # Minimalist divider rule line
+│   ├── Stat.tsx              # Clean metric and technical stat display
+│   └── VideoScrub.tsx        # Scroll-driven All-Intra video scrubbing with flowing text
+├── data/
+│   └── index.ts              # Editorial chapters, subtitles, and telemetry stat records
+├── types/
+│   └── index.ts              # Centralized TypeScript interfaces
+├── App.tsx                   # Top-level editorial page composition
+├── index.css                 # Editorial font rules, base resets, minimal scrollbar
+└── main.tsx                  # React entry point
 ```
 
 ---
 
-## 🎬 Dual 4K Video Scroll Integration
-
-This experience utilizes the two 4K videos provided in the workspace:
-
-1. **Act I: 4K Rendered Aerodynamic Anatomy**
-   - Source: `F1 WALLPAPER VIDEO 4K RENDERED [1ogJCcYZfKI].mkv`
-   - Remuxed to: `public/videos/hero-f1.webm` (Full 4K resolution preserved with lossless video stream copy and browser-native audio).
-   - Driven by: **GSAP ScrollTrigger** pinning the viewport across scroll progress (`0.0` to `1.0`).
-   - Features:
-     - 5 Synchronized Aerodynamic Chapters:
-       - `01. CHASSIS & WING`: Vortex generation & Y250 tunnels
-       - `02. VENTURI FLOORS`: Sidepod undercut & underfloor suction
-       - `03. POWER UNIT`: 1.6L 90° Turbo-Hybrid & MGU-K / MGU-H
-       - `04. REAR DRS WING`: Hydraulic 85mm flap actuation (+22 km/h)
-       - `05. WARP LAUNCH`: Top speed trap velocity
-     - Real-time vehicle dynamics HUD: Live Tachometer with LED shift lights, Speedometer, Gear, Throttle/Brake pedals trace, and lateral/longitudinal G-forces.
-     - Interactive Chapter Jump buttons and Autopilot mode.
-
-2. **Act II: 3D Aerodynamic Wind Tunnel (Three.js / React Three Fiber)**
-   - Interactive 3D particle airflow streamlines flowing over an F1 race chassis.
-   - Interactive parameters: Tunnel Air Velocity (60 to 360 km/h), Ride Height Ground Clearance (15 to 50 mm), Wireframe / Solid mode, and Orbit controls.
-   - Live calculated downforce, drag coefficient (Cd), and aero balance.
-
-3. **Act III: Track Warfare & Apex Dominance**
-   - Source: `Pyramids- F1 [4K] [ijGfvd68Qps].mkv`
-   - Remuxed to: `public/videos/pyramids-f1.webm` (Full 4K resolution with high-fidelity soundtrack).
-   - Driven by: **GSAP ScrollTrigger** with real-time telemetry curve graph.
-   - Features:
-     - Sector 1: Variante del Rettifilo (-5.4G braking zone)
-     - Sector 2: Variante Ascari Entry (Kerb attack & high-speed curve)
-     - Sector 3: Curva del Serraglio (Slipstream duel)
-     - Sector 4: Curva Alboreto / Parabolica (Full throttle launch)
-     - Audio sync with dynamic equalizer visualizer.
-
-4. **Act IV: Tactical Pit Wall Strategy**
-   - Pirelli tire compound performance envelope (C5 Soft, C3 Medium, C1 Hard).
-   - Stint pace & degradation simulation (1-Stop vs 2-Stop strategy).
-   - Live Team Radio comms with authentic radio beep sound effects.
-
-5. **Act V: Driver Telemetry Comparison**
-   - Head-to-head telemetry analysis for Verstappen, Hamilton, Norris, and Leclerc.
-   - Comparative metrics: Top Speed, Late Braking Aggression, Tire Preservation, and High-G Cornering Grip.
-
-6. **Act VI: Checkered Flag & Podium Celebration**
-   - Grand Prix victory celebration with interactive podium confetti cannons (`canvas-confetti`).
-
----
-
-## 🚀 Running the Project
+## Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
 # Start development server
 npm run dev
 
@@ -83,4 +72,4 @@ npm run build
 npm run preview
 ```
 
-Server runs on: **http://localhost:3000**
+Development server runs on: **http://localhost:3000**

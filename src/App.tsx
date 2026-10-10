@@ -1,10 +1,11 @@
 import React from 'react';
 import { VideoScrub } from './components/VideoScrub';
+import { AutoPlayVideo } from './components/AutoPlayVideo';
 import { RevealText } from './components/RevealText';
 import { BodyText } from './components/BodyText';
 import { Stat } from './components/Stat';
 import { Rule } from './components/Rule';
-import { HERO_CHAPTERS, TRACK_CHAPTERS, STATS_DATA } from './data';
+import { HERO_CHAPTERS, STATS_DATA } from './data';
 import './index.css';
 
 export default function App() {
@@ -122,10 +123,11 @@ export default function App() {
         </div>
       </div>
 
-      <VideoScrub
+      <AutoPlayVideo
         src="/videos/pyramids-f1.mp4"
-        scrollHeight="420vh"
-        chapters={TRACK_CHAPTERS}
+        tag="TRACK CINEMATICS"
+        title="PYRAMIDS // FULL SPEED APEX"
+        subtitle="4K ON-TRACK ACTION"
       />
 
       <div style={{ padding: 'clamp(64px, 10vw, 120px) clamp(24px, 5vw, 72px)' }}>

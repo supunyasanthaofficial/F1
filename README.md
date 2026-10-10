@@ -1,4 +1,4 @@
-# FORMULA 1 // EDITORIAL SCROLL EXPERIENCE
+# FORMULA 1  EDITORIAL SCROLL EXPERIENCE
 
 A human-crafted, editorial, scroll-driven Formula 1 storytelling website inspired by [jjettas.com](https://jjettas.com/). Built with React, TypeScript, Tailwind CSS, and GSAP + ScrollTrigger.
 

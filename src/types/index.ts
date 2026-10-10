@@ -16,6 +16,13 @@ export interface VideoScrubProps {
   chapters: Chapter[];
 }
 
+export interface AutoPlayVideoProps {
+  src: string;
+  tag?: string;
+  title?: string;
+  subtitle?: string;
+}
+
 export interface RevealTextProps {
   text: string;
   size?: 'sm' | 'md' | 'lg';
@@ -31,4 +38,11 @@ export interface BodyTextProps {
 export interface StatProps {
   value: string;
   label: string;
+}
+
+export interface EditorialImageProps {
+  src: string;
+  alt: string;
+  caption?: string;
+  aspectRatio?: string;
 }

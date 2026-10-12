@@ -8,8 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 export const RevealText: React.FC<RevealTextProps> = ({
   text,
   size = 'lg',
-  color = '#f0ece4',
+  color = '#ffffff',
   align = 'left',
+  highlightWords = [],
+  highlightColor = '#ff1801',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -58,21 +60,33 @@ export const RevealText: React.FC<RevealTextProps> = ({
           overflow: 'hidden',
         }}
       >
-        {words.map((word, idx) => (
-          <span
-            key={idx}
-            style={{
-              display: 'inline-block',
-              overflow: 'hidden',
-              marginRight: '0.22em',
-              verticalAlign: 'top',
-            }}
-          >
-            <span className="reveal-word" style={{ display: 'inline-block' }}>
-              {word}
+        {words.map((word, idx) => {
+          const isHighlighted = highlightWords.some(hw =>
+            word.toLowerCase().replace(/[^a-z0-9]/g, '') === hw.toLowerCase().replace(/[^a-z0-9]/g, '')
+          );
+          return (
+            <span
+              key={idx}
+              style={{
+                display: 'inline-block',
+                overflow: 'hidden',
+                marginRight: '0.22em',
+                verticalAlign: 'top',
+              }}
+            >
+              <span
+                className="reveal-word"
+                style={{
+                  display: 'inline-block',
+                  color: isHighlighted ? highlightColor : undefined,
+                  textShadow: isHighlighted ? '0 0 28px rgba(255, 24, 1, 0.45)' : undefined,
+                }}
+              >
+                {word}
+              </span>
             </span>
-          </span>
-        ))}
+          );
+        })}
       </h2>
     </div>
   );

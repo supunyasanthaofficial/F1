@@ -36,10 +36,10 @@ export const BodyText: React.FC<BodyTextProps> = ({ text, align = 'left' }) => {
     <p
       ref={textRef}
       style={{
-        fontSize: 'clamp(14px, 1.4vw, 18px)',
+        fontSize: 'clamp(15px, 1.4vw, 18px)',
         lineHeight: 1.82,
-        color: 'rgba(240,236,228,0.48)',
-        maxWidth: 400,
+        color: '#b8c2d1',
+        maxWidth: 420,
         fontWeight: 300,
         textAlign: align,
         marginLeft: align === 'right' ? 'auto' : align === 'center' ? 'auto' : 0,

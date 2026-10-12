@@ -28,6 +28,8 @@ export interface RevealTextProps {
   size?: 'sm' | 'md' | 'lg';
   color?: string;
   align?: 'left' | 'center' | 'right';
+  highlightWords?: string[];
+  highlightColor?: string;
 }
 
 export interface BodyTextProps {
@@ -38,6 +40,7 @@ export interface BodyTextProps {
 export interface StatProps {
   value: string;
   label: string;
+  accent?: boolean;
 }
 
 export interface EditorialImageProps {

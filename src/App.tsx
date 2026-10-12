@@ -23,26 +23,41 @@ export default function App() {
         <p
           className="label"
           style={{
-            color: 'rgba(240,236,228,0.28)',
+            color: 'rgba(255, 255, 255, 0.45)',
             marginBottom: 24,
             letterSpacing: '0.22em',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
           }}
         >
-          Scroll
+          <span
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: '50%',
+              background: '#ff1801',
+              display: 'inline-block',
+              boxShadow: '0 0 10px #ff1801',
+            }}
+          />
+          SCROLL TO COMMENCE
         </p>
         <h1
           className="heading-xl"
           style={{
             fontSize: 'clamp(80px, 17vw, 220px)',
-            color: '#f0ece4',
+            color: '#ffffff',
             lineHeight: 0.84,
+            textShadow: '0 4px 20px rgba(0, 0, 0, 0.9)',
           }}
         >
           Formula<br />
           <span
             style={{
-              color: 'rgba(240,236,228,0.15)',
-              WebkitTextStroke: '1px rgba(240,236,228,0.2)',
+              color: '#ff1801',
+              WebkitTextStroke: '1px #ff1801',
+              textShadow: '0 0 45px rgba(255, 24, 1, 0.5)',
             }}
           >
             One.
@@ -57,7 +72,11 @@ export default function App() {
       />
 
       <div style={{ padding: 'clamp(64px, 10vw, 120px) clamp(24px, 5vw, 72px)' }}>
-        <RevealText text="Not a car. An argument with physics." size="lg" />
+        <RevealText
+          text="Not a car. An argument with physics."
+          size="lg"
+          highlightWords={['physics']}
+        />
 
         <div
           style={{
@@ -99,7 +118,7 @@ export default function App() {
           text="When you find the limit, you are already past it."
           size="md"
           align="center"
-          color="rgba(240,236,228,0.88)"
+          highlightWords={['limit']}
         />
       </div>
 
@@ -114,7 +133,12 @@ export default function App() {
           textAlign: 'right',
         }}
       >
-        <RevealText text="Monza never forgives a mistake." size="lg" align="right" />
+        <RevealText
+          text="Monza never forgives a mistake."
+          size="lg"
+          align="right"
+          highlightWords={['Monza']}
+        />
         <div style={{ marginTop: 'clamp(28px, 4vw, 56px)' }}>
           <BodyText
             text="Six kilometres of flat-out tarmac. The cars trimmed as lean as possible. Slipstreaming is a weapon and one error ends a race."
@@ -131,7 +155,11 @@ export default function App() {
       />
 
       <div style={{ padding: 'clamp(64px, 10vw, 120px) clamp(24px, 5vw, 72px)' }}>
-        <RevealText text="Ten percent talent. Ninety percent nerve." size="lg" />
+        <RevealText
+          text="Ten percent talent. Ninety percent nerve."
+          size="lg"
+          highlightWords={['nerve']}
+        />
         <div style={{ marginTop: 'clamp(28px, 4vw, 56px)' }}>
           <BodyText text="Braking at 340 km/h with 200 bar of force through the left foot. Threading a corner that takes 0.4 seconds to exit. The body survives. The mind decides." />
         </div>
@@ -152,12 +180,21 @@ export default function App() {
           style={{
             fontSize: 'clamp(64px, 13vw, 180px)',
             lineHeight: 0.86,
-            color: 'rgba(240,236,228,0.08)',
-            WebkitTextStroke: '1px rgba(240,236,228,0.12)',
+            color: 'rgba(255, 255, 255, 0.08)',
+            WebkitTextStroke: '1px rgba(255, 255, 255, 0.18)',
           }}
         >
           Nothing<br />
-          <span style={{ color: '#f0ece4', WebkitTextStroke: 'none' }}>else</span><br />
+          <span
+            style={{
+              color: '#ff1801',
+              WebkitTextStroke: 'none',
+              textShadow: '0 0 50px rgba(255, 24, 1, 0.55)',
+            }}
+          >
+            else
+          </span>
+          <br />
           matters.
         </h2>
       </div>

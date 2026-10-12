@@ -137,19 +137,27 @@ export const VideoScrub: React.FC<VideoScrubProps> = ({
               <p
                 className="label"
                 style={{
-                  color: 'rgba(240,236,228,0.5)',
                   marginBottom: 14,
-                  letterSpacing: '0.2em',
+                  letterSpacing: '0.22em',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
                 }}
               >
-                {String(i + 1).padStart(2, '0')} // {String(chapters.length).padStart(2, '0')}
+                <span style={{ color: '#ff1801', fontWeight: 700 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.4)' }}>
+                  // {String(chapters.length).padStart(2, '0')}
+                </span>
               </p>
               <h2
                 className="heading-xl"
                 style={{
                   fontSize: 'clamp(52px, 9.5vw, 116px)',
-                  color: '#f0ece4',
+                  color: '#ffffff',
                   lineHeight: 0.88,
+                  textShadow: '0 4px 24px rgba(0, 0, 0, 0.85)',
                 }}
               >
                 {ch.line1}
@@ -159,8 +167,9 @@ export const VideoScrub: React.FC<VideoScrubProps> = ({
                   className="heading-xl"
                   style={{
                     fontSize: 'clamp(52px, 9.5vw, 116px)',
-                    color: 'rgba(240,236,228,0.3)',
+                    color: '#ff1801',
                     lineHeight: 0.88,
+                    textShadow: '0 0 32px rgba(255, 24, 1, 0.45)',
                   }}
                 >
                   {ch.line2}
